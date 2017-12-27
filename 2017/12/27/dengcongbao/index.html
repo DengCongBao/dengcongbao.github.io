@@ -5,20 +5,20 @@
   
 
   
-  <title>MyBlog</title>
+  <title>dengcongbao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Spring Boot 集成 Kafka*Spring Boot 集成 Kafka 参考文档 https://kafka.apache.org https://projects.spring.io/spring-kafka/ http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-messaging.h">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MyBlog">
+<meta property="og:title" content="dengcongbao">
 <meta property="og:url" content="http://yoursite.com/2017/12/27/dengcongbao/index.html">
-<meta property="og:site_name" content="MyBlog">
+<meta property="og:site_name" content="dengcongbao">
 <meta property="og:description" content="Spring Boot 集成 Kafka*Spring Boot 集成 Kafka 参考文档 https://kafka.apache.org https://projects.spring.io/spring-kafka/ http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-messaging.h">
-<meta property="og:updated_time" content="2017-12-27T12:25:44.092Z">
+<meta property="og:updated_time" content="2017-12-27T12:30:34.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBlog">
+<meta name="twitter:title" content="dengcongbao">
 <meta name="twitter:description" content="Spring Boot 集成 Kafka*Spring Boot 集成 Kafka 参考文档 https://kafka.apache.org https://projects.spring.io/spring-kafka/ http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-messaging.h">
   
-    <link rel="alternate" href="/atom.xml" title="MyBlog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="dengcongbao" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -37,7 +37,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">MyBlog</a>
+        <a href="/" id="logo">dengcongbao</a>
       </h1>
       
     </div>
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -86,13 +86,13 @@
 <p>application.properties </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># kafka</span><br><span class="line">spring.kafka.bootstrap-servers=xxx.xxx.xxx.xxxx:xxxx</span><br><span class="line">spring.kafka.consumer.group-id=springboot-group1</span><br><span class="line">spring.kafka.consumer.auto-offset-reset=earliest</span><br></pre></td></tr></table></figure>
 <p>然后在 Spring Boot 中就可以使用 <code>KafkaTemplate</code> 发送消息，使用 <code>@KafkaListener</code> 消费指定主题的消息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package com.boot;</span><br><span class="line"></span><br><span class="line">import org.apache.kafka.clients.consumer.ConsumerRecord;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.EnableAutoConfiguration;</span><br><span class="line">import org.springframework.kafka.annotation.KafkaListener;</span><br><span class="line">import org.springframework.kafka.core.KafkaTemplate;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author liuzh</span><br><span class="line"> * @since 2017/6/17.</span><br><span class="line"> */</span><br><span class="line">@Controller</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">public class KAFKAController &#123;</span><br><span class="line"></span><br><span class="line">    public static Logger logger = LoggerFactory.getLogger(KAFKAController.class);</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private KafkaTemplate&lt;String, String&gt; template;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/send&quot;)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    String send(String topic, String key, String data) &#123;</span><br><span class="line">        template.send(topic, key, data);</span><br><span class="line">        return &quot;success&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        SpringApplication.run(SampleController.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @KafkaListener(id = &quot;t1&quot;, topics = &quot;t1&quot;)</span><br><span class="line">    public void listenT1(ConsumerRecord&lt;?, ?&gt; cr) throws Exception &#123;</span><br><span class="line">        logger.info(&quot;&#123;&#125; - &#123;&#125; : &#123;&#125;&quot;, cr.topic(), cr.key(), cr.value());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @KafkaListener(id = &quot;t2&quot;, topics = &quot;t2&quot;)</span><br><span class="line">    public void listenT2(ConsumerRecord&lt;?, ?&gt; cr) throws Exception &#123;</span><br><span class="line">        logger.info(&quot;&#123;&#125; - &#123;&#125; : &#123;&#125;&quot;, cr.topic(), cr.key(), cr.value());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">package com.boot;</span><br><span class="line"></span><br><span class="line">import org.apache.kafka.clients.consumer.ConsumerRecord;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.EnableAutoConfiguration;</span><br><span class="line">import org.springframework.kafka.annotation.KafkaListener;</span><br><span class="line">import org.springframework.kafka.core.KafkaTemplate;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author dengcongbao</span><br><span class="line"> */</span><br><span class="line">@Controller</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">public class KAFKAController &#123;</span><br><span class="line"></span><br><span class="line">    public static Logger logger = LoggerFactory.getLogger(KAFKAController.class);</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private KafkaTemplate&lt;String, String&gt; template;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/send&quot;)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    String send(String topic, String key, String data) &#123;</span><br><span class="line">        template.send(topic, key, data);</span><br><span class="line">        return &quot;success&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        SpringApplication.run(SampleController.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @KafkaListener(id = &quot;t1&quot;, topics = &quot;t1&quot;)</span><br><span class="line">    public void listenT1(ConsumerRecord&lt;?, ?&gt; cr) throws Exception &#123;</span><br><span class="line">        logger.info(&quot;&#123;&#125; - &#123;&#125; : &#123;&#125;&quot;, cr.topic(), cr.key(), cr.value());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @KafkaListener(id = &quot;t2&quot;, topics = &quot;t2&quot;)</span><br><span class="line">    public void listenT2(ConsumerRecord&lt;?, ?&gt; cr) throws Exception &#123;</span><br><span class="line">        logger.info(&quot;&#123;&#125; - &#123;&#125; : &#123;&#125;&quot;, cr.topic(), cr.key(), cr.value());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>通过<code>http://localhost:8080/send?topic=hello&amp;key=test1&amp;data=helloworld</code>方法可以产生指定主题的消息。或者可以通过前面使用命令行方式或者API方式创建消息。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/dengcongbao/" data-id="cjbp1avj4000090uclty1l1qo" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/27/dengcongbao/" data-id="cjbp1lrjm00007kuck8wa7eg0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -103,7 +103,7 @@
   
   
     <a href="/2017/12/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">鬼谷子</div>
     </a>
   
@@ -136,7 +136,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -161,7 +161,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 dengcongbao<br>
-      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="welcome to my blog"/>
+        <meta property="og:title" content="ThreadPoolTaskExecutor"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>welcome to my blog</title>
+    <title>ThreadPoolTaskExecutor - welcome to my blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -135,26 +135,26 @@
     <div class="col-sm-12">
 
         <!--Title and Logo-->
-        <header>
+        
+            <header>
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
     </div>
 </header>
-
-        <section class="main">
-            
+            <section class="main">
+                
 <div class="post">
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2017/12/27/dengcongbao/">
-                blog
+            <a href="/spring-tpe/index.html">
+                ThreadPoolTaskExecutor
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2017-12-27</span>
+                <span class="date">2017-12-29</span>
             
             
             
@@ -167,10 +167,10 @@
         
 
         <!-- Post Content -->
-        <h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><p>Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。 这种动作（网页浏览，搜索和其他用户的行动）是在现代网络上的许多社会功能的一个关键因素。 这些数据通常是由于吞吐量的要求而通过处理日志和日志聚合来解决。 对于像Hadoop的一样的日志数据和离线分析系统，但又要求实时处理的限制，这是一个可行的解决方案。Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消息处理，也是为了通过集群来提供实时的消费。</p>
-<p><a href="/kafka">查看更多</a></p>
-<h2 id="Spring-ThreadPoolTaskExecutor"><a href="#Spring-ThreadPoolTaskExecutor" class="headerlink" title="Spring-ThreadPoolTaskExecutor"></a>Spring-ThreadPoolTaskExecutor</h2><p>ThreadPoolTaskExecutor是一个spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。</p>
-<p><a href="/spring-tpe">查看更多</a></p>
+        <p>xml配置方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;taskExecutor&quot; </span><br><span class="line">   class=&quot;org.springfram	ework.scheduling.concurrent.ThreadPoolTaskExecutor&quot;&gt; </span><br><span class="line">   &lt;property name=&quot;corePoolSize&quot; value=&quot;20&quot; /&gt; </span><br><span class="line">   &lt;property name=&quot;keepAliveSeconds&quot; value=&quot;200&quot; /&gt; </span><br><span class="line">   &lt;property name=&quot;maxPoolSize&quot; value=&quot;50&quot; /&gt; </span><br><span class="line">   &lt;property name=&quot;queueCapacity&quot; value=&quot;50&quot; /&gt; </span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>注解配置方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class TaskExecutor &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public ThreadPoolTaskExecutor getExecutor() &#123;</span><br><span class="line">        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();</span><br><span class="line">        executor.setCorePoolSize(20);</span><br><span class="line">        executor.setKeepAliveSeconds(200);</span><br><span class="line">        executor.setMaxPoolSize(50);</span><br><span class="line">        executor.setQueueCapacity(50);</span><br><span class="line">        return executor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -182,8 +182,8 @@
     
 
 </div>
-        </section>
-
+            </section>
+        
     </div>
 </div>
 

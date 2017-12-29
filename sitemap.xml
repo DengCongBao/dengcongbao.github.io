@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>dengcongbao.github.io/kafka/index.html</loc>
+    
+    <lastmod>2017-12-29T06:49:29.510Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>dengcongbao.github.io/spring-tpe/index.html</loc>
     
     <lastmod>2017-12-29T05:48:10.674Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>dengcongbao.github.io/archive/index.html</loc>
     
     <lastmod>2017-12-29T03:52:28.180Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>dengcongbao.github.io/kafka/index.html</loc>
-    
-    <lastmod>2017-12-29T03:51:29.656Z</lastmod>
     
   </url>
   

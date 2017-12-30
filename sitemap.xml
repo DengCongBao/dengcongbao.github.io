@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>dengcongbao.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-12-30T10:25:37.930Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>dengcongbao.github.io/schedule/index.html</loc>
+    
+    <lastmod>2017-12-30T10:24:39.553Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>dengcongbao.github.io/tags/index.html</loc>
+    
+    <lastmod>2017-12-30T03:40:48.579Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>dengcongbao.github.io/kafka/index.html</loc>
     
-    <lastmod>2017-12-29T08:21:08.132Z</lastmod>
+    <lastmod>2017-12-29T09:47:47.944Z</lastmod>
     
   </url>
   
@@ -33,13 +54,6 @@
     <loc>dengcongbao.github.io/archive/index.html</loc>
     
     <lastmod>2017-12-29T03:52:28.180Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>dengcongbao.github.io/tags/index.html</loc>
-    
-    <lastmod>2017-12-29T03:29:02.280Z</lastmod>
     
   </url>
   

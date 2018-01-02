@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>dengcongbao.github.io/hadoop/index.html</loc>
+    
+    <lastmod>2017-12-31T17:00:49.142Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>dengcongbao.github.io/mapreduce/index.html</loc>
+    
+    <lastmod>2017-12-31T13:14:59.458Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>dengcongbao.github.io/lombok/index.html</loc>
     
     <lastmod>2017-12-31T06:24:12.699Z</lastmod>

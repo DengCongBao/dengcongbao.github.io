@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;			&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;			&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;">
+<meta name="description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;	&amp;lt;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="lombok">
 <meta property="og:url" content="dengcongbao.github.io/lombok/index.html">
 <meta property="og:site_name" content="the harder i work , the luckier i get">
-<meta property="og:description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;			&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;			&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;">
+<meta property="og:description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;	&amp;lt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-31T06:24:12.699Z">
+<meta property="og:updated_time" content="2018-01-05T03:16:35.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lombok">
-<meta name="twitter:description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;			&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;			&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;">
+<meta name="twitter:description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;	&amp;lt;">
 
 
 
@@ -301,10 +301,10 @@
           <p><strong>lombok</strong> 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码</p>
 <p>springboot集成lombok</p>
 <p>pom文件添加以下依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">			&lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">	&lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <p>lombok 注解：<br>​    lombok 提供的注解不多，可以参考官方视频的讲解和官方文档。<br>​    Lombok 注解在线帮助文档：<a href="http://projectlombok.org/features/index.html" target="_blank" rel="noopener">http://projectlombok.org/features/index.</a>    下面介绍几个我常用的 lombok 注解：<br>​        @Data   ：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提     供了equals、canEqual、hashCode、toString 方法<br>​        @Setter：注解在属性上；为属性提供 setting 方法<br>​        @Getter：注解在属性上；为属性提供 getting 方法<br>​        @Log4j ：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象<br>​        @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法<br>​        @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法</p>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Log4j</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">public class Person &#123;</span><br><span class="line">private String id;</span><br><span class="line">private String name;</span><br><span class="line">private String identity;  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Log</span>4j</span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> String identity;  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
         
       </div>

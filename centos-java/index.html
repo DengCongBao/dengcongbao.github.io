@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="E437: terminal capability ＂cm＂ required 解决办法 centos7安装Java centos7安装hadoop">
+<meta name="description" content="1、安装yum : yum -y update 2、安装上传插件 ： yum install lrzsz 3、上传已下载的 jdk tar包 jdk-8u131-linux-x64.tar.gz ​       rz -y 选择tar包 4、解压 ：tar -zxvf  jdk-8u131-linux-x64.tar.gz -C /usr/java 5、设置环境变量： ​     vi /etc/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="linux">
-<meta property="og:url" content="dengcongbao.github.io/linux/index.html">
+<meta property="og:title" content="Centos7安装java">
+<meta property="og:url" content="dengcongbao.github.io/centos-java/index.html">
 <meta property="og:site_name" content="the harder i work , the luckier i get">
-<meta property="og:description" content="E437: terminal capability ＂cm＂ required 解决办法 centos7安装Java centos7安装hadoop">
+<meta property="og:description" content="1、安装yum : yum -y update 2、安装上传插件 ： yum install lrzsz 3、上传已下载的 jdk tar包 jdk-8u131-linux-x64.tar.gz ​       rz -y 选择tar包 4、解压 ：tar -zxvf  jdk-8u131-linux-x64.tar.gz -C /usr/java 5、设置环境变量： ​     vi /etc/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-07T05:02:43.095Z">
+<meta property="og:updated_time" content="2018-01-06T10:08:24.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux">
-<meta name="twitter:description" content="E437: terminal capability ＂cm＂ required 解决办法 centos7安装Java centos7安装hadoop">
+<meta name="twitter:title" content="Centos7安装java">
+<meta name="twitter:description" content="1、安装yum : yum -y update 2、安装上传插件 ： yum install lrzsz 3、上传已下载的 jdk tar包 jdk-8u131-linux-x64.tar.gz ​       rz -y 选择tar包 4、解压 ：tar -zxvf  jdk-8u131-linux-x64.tar.gz -C /usr/java 5、设置环境变量： ​     vi /etc/">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="dengcongbao.github.io/linux/"/>
+  <link rel="canonical" href="dengcongbao.github.io/centos-java/"/>
 
 
 
 
 
-  <title>linux | the harder i work , the luckier i get</title>
+  <title>Centos7安装java | the harder i work , the luckier i get</title>
   
 
 
@@ -286,7 +286,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">linux</h1>
+	<h1 class="post-title" itemprop="name headline">Centos7安装java</h1>
 
 
 
@@ -298,9 +298,19 @@
       <div class="post-body">
         
         
-          <p><a href="/error">E437: terminal capability ＂cm＂ required 解决办法</a></p>
-<p><a href="/centos-java">centos7安装Java</a></p>
-<p><a href="/centos-hadoop">centos7安装hadoop</a></p>
+          <p>1、安装yum : yum -y update</p>
+<p>2、安装上传插件 ： yum install lrzsz</p>
+<p>3、上传已下载的 jdk tar包 jdk-8u131-linux-x64.tar.gz</p>
+<p>​       rz -y 选择tar包</p>
+<p>4、解压 ：tar -zxvf  jdk-8u131-linux-x64.tar.gz -C /usr/java</p>
+<p>5、设置环境变量：</p>
+<p>​     vi /etc/profile</p>
+<p>​      ①在末尾添加在末尾行添加</p>
+<p>​      ②在末尾行添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>set java environment</span><br><span class="line">JAVA_HOME=/usr/java/jdk1.8.0_131</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib.tools.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+<p>​      ③source /etc/profile</p>
+<p>​      ④java -version 查看JDK版本信息，如果显示以下信息证明安装成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version "1.8.0_131"</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_131-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)</span><br></pre></td></tr></table></figure>
 
         
       </div>

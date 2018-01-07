@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>dengcongbao.github.io/error/index.html</loc>
+    <loc>dengcongbao.github.io/linux/index.html</loc>
     
-    <lastmod>2018-01-05T09:47:09.694Z</lastmod>
+    <lastmod>2018-01-07T05:02:43.095Z</lastmod>
     
   </url>
   
   <url>
-    <loc>dengcongbao.github.io/linux/index.html</loc>
+    <loc>dengcongbao.github.io/centos-hadoop/index.html</loc>
     
-    <lastmod>2018-01-05T09:46:14.814Z</lastmod>
+    <lastmod>2018-01-06T14:18:23.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>dengcongbao.github.io/centos-java/index.html</loc>
+    
+    <lastmod>2018-01-06T10:08:24.801Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>dengcongbao.github.io/error/index.html</loc>
+    
+    <lastmod>2018-01-05T09:47:09.694Z</lastmod>
     
   </url>
   

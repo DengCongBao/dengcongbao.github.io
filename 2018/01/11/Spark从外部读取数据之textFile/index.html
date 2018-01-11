@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="the harder i work , the luckier i get">
 <meta property="og:description" content="spark">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-11T07:08:36.702Z">
+<meta property="og:updated_time" content="2018-01-11T07:25:31.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark从外部读取数据之textFile">
 <meta name="twitter:description" content="spark">
@@ -427,6 +427,36 @@
 <p>path: String 是一个URI，這个URI可以是HDFS、本地文件（全部的节点都可以），或者其他Hadoop支持的文件系统URI返回的是一个字符串类型的RDD，也就是是RDD的内部形式是Iterator[(String)]</p>
 <p>minPartitions=  math.min(defaultParallelism, 2) 是指定数据的分区，如果不指定分区，当你的核数大于2的时候，不指定分区数那么就是 2</p>
 <p>当你的数据大于128M时候，Spark是为每一个快（block）创建一个分片（Hadoop-2.X之后为128m一个block）</p>
+<p>1、从当前目录读取一个文件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"Current.txt"</span>  <span class="comment">//Current fold file  </span></span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>从当前目录读取一个Current.txt的文件</p>
+<p>2、从当前目录读取多个文件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"Current1.txt，Current2.txt，"</span>  <span class="comment">//Current fold file  </span></span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>从当前读取两个文件，分别是Cuttent1.txt和Current2.txt</p>
+<p>3、从本地系统读取一个文件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"file:///usr/local/spark/spark-1.6.0-bin-hadoop2.6/README.md"</span>  <span class="comment">//local file  </span></span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>4、从本地系统读取整个文件夹</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"file:///usr/local/spark/spark-1.6.0-bin-hadoop2.6/licenses/"</span>  <span class="comment">//local file  </span></span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>从本地系统中读取licenses这个文件夹下的所有文件</p>
+<p>這里特别注意的是，比如這个文件夹下有35个文件，上面分区数设置是2，那么整个RDD的分区数是35*2？</p>
+<p>這是错误的，這个RDD的分区数不管你的partition数设置为多少时，只要license這个文件夹下的這个文件a.txt</p>
+<p>(比如有a.txt)没有超过128m，那么a.txt就只有一个partition。那么就是说只要这35个文件其中没有一个超过</p>
+<p>128m，那么分区数就是 35个</p>
+<p>5、从本地系统读取多个文件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"file:///usr/local/spark/spark-1.6.0-bin-hadoop2.6/licenses/LICENSE-scala.txt,file:///usr/local/spark/spark-1.6.0-bin-hadoop2.6/licenses/LICENSE-spire.txt"</span>  <span class="comment">//local file  </span></span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>从本地系统中读取file:///usr/local/spark/spark-1.6.0-bin-hadoop2.6/licenses/下的LICENSE-spire.txt和</p>
+<p>LICENSE-scala.txt两个文件。上面分区设置是2，那个RDD的整个分区数是2*2</p>
+<p>6、从本地系统读取多个文件夹下的文件（把如下文件全部读取进来）</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"/usr/local/spark/spark-1.6.0-bin-hadoop2.6/data/*/*"</span>  <span class="comment">//local file  </span></span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>采用通配符的形式来代替文件，来对数据文件夹进行整体读取。但是后面设置的分区数2也是可以去除的。因为一个文件没有达到128m，所以上面的一个文件一个partition，一共是20个。</p>
+<p>7采用通配符，来读取多个文件名类似的文件</p>
+<p>比如读取如下文件的people1.txt和people2.txt,但google.txt不读取</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i &lt;- <span class="number">1</span> to <span class="number">2</span>)&#123;  </span><br><span class="line">      <span class="keyword">val</span> rdd1 = sc.textFile(<span class="string">s"/root/application/temp/people<span class="subst">$i</span>*"</span>,<span class="number">2</span>)  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>8、采用通配符读取相同后缀的文件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"/usr/local/spark/spark-1.6.0-bin-hadoop2.6/data/*/*.txt"</span>  <span class="comment">//local file  </span></span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>9、从HDFS读取一个文件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> path = <span class="string">"hdfs://master:9000/examples/examples/src/main/resources/people.txt"</span>  </span><br><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>从HDFS中读取文件的形式和本地上一样，只是前面的路径要表明是HDFS中的</p>
 
       
     </div>

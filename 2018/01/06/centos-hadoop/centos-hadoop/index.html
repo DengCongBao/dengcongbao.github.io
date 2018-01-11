@@ -90,7 +90,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="安装步骤," />
 
 
 
@@ -101,17 +101,18 @@
 
 
 
-<meta name="description" content="Java Python Scala">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="dengcongbao.github.io/about/index.html">
+<meta name="description" content="1、创建目录 解压文件到指定目录 mkdir /usr/hadoop tar -zxvf hadoop.tar.gz -C /usr/hadoop 2、设置hadoop 1234567一共需要配置主要的6个文件    hadoop-3.0.0/etc/hadoop/hadoop-env.sh     hadoop-3.0.0/etc/hadoop/yarn-env.sh     hadoop-3.">
+<meta name="keywords" content="安装步骤">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos安装Hadoop3.0">
+<meta property="og:url" content="dengcongbao.github.io/2018/01/06/centos-hadoop/centos-hadoop/index.html">
 <meta property="og:site_name" content="the harder i work , the luckier i get">
-<meta property="og:description" content="Java Python Scala">
+<meta property="og:description" content="1、创建目录 解压文件到指定目录 mkdir /usr/hadoop tar -zxvf hadoop.tar.gz -C /usr/hadoop 2、设置hadoop 1234567一共需要配置主要的6个文件    hadoop-3.0.0/etc/hadoop/hadoop-env.sh     hadoop-3.0.0/etc/hadoop/yarn-env.sh     hadoop-3.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-28T09:22:34.407Z">
+<meta property="og:updated_time" content="2018-01-11T02:13:35.743Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="Java Python Scala">
+<meta name="twitter:title" content="Centos安装Hadoop3.0">
+<meta name="twitter:description" content="1、创建目录 解压文件到指定目录 mkdir /usr/hadoop tar -zxvf hadoop.tar.gz -C /usr/hadoop 2、设置hadoop 1234567一共需要配置主要的6个文件    hadoop-3.0.0/etc/hadoop/hadoop-env.sh     hadoop-3.0.0/etc/hadoop/yarn-env.sh     hadoop-3.">
 
 
 
@@ -141,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="dengcongbao.github.io/about/"/>
+  <link rel="canonical" href="dengcongbao.github.io/2018/01/06/centos-hadoop/centos-hadoop/"/>
 
 
 
 
 
-  <title>关于 | the harder i work , the luckier i get</title>
+  <title>Centos安装Hadoop3.0 | the harder i work , the luckier i get</title>
   
 
 
@@ -315,33 +316,198 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="dengcongbao.github.io/2018/01/06/centos-hadoop/centos-hadoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guiguzi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="the harder i work , the luckier i get">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">Centos安装Hadoop3.0</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T19:29:16+08:00">
+                2018-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hadoop/" itemprop="url" rel="index">
+                    <span itemprop="name">Hadoop</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>1、创建目录 解压文件到指定目录</p>
+<p>mkdir /usr/hadoop</p>
+<p>tar -zxvf hadoop.tar.gz -C /usr/hadoop</p>
+<p>2、设置hadoop</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一共需要配置主要的6个文件</span><br><span class="line">    hadoop-3.0.0/etc/hadoop/hadoop-env.sh </span><br><span class="line">    hadoop-3.0.0/etc/hadoop/yarn-env.sh </span><br><span class="line">    hadoop-3.0.0/etc/hadoop/core-site.xml </span><br><span class="line">    hadoop-3.0.0/etc/hadoop/hdfs-site.xml </span><br><span class="line">    hadoop-3.0.0/etc/hadoop/mapred-site.xml </span><br><span class="line">    hadoop-3.0.0/etc/hadoop/yarn-site.xml</span><br></pre></td></tr></table></figure>
+<p>1）配置hadoop-env.sh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=$&#123;JAVA_HOME&#125;</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131</span><br><span class="line"></span><br><span class="line">export HDFS_NAMENODE_USER=root</span><br><span class="line">export HDFS_DATANODE_SECURE_USER=root</span><br><span class="line">export HDFS_DATANODE_SECURE_USER=root</span><br><span class="line">export HDFS_SECONDARYNAMENODE_USER=root</span><br></pre></td></tr></table></figure>
+<p>​     2）配置yarn-env.sh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131</span><br><span class="line">export YARN_RESOURCEMANAGER_USER=root</span><br><span class="line">export YARN_NODEMANAGER_USER=root</span><br></pre></td></tr></table></figure>
+<p>3）配置core-site.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   		<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.19.128:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>HDFS的URI，文件系统://namenode标识:端口号<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>namenode上本地的hadoop临时文件夹<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4），配置hdfs-site.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!—hdfs-site.xml--</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/hadoop/hdfs/name<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>namenode上存储hdfs名字空间元数据 <span class="tag">&lt;/<span class="name">description</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/hadoop/hdfs/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>datanode上数据块的物理存储位置<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>副本个数，配置默认是3,应小于datanode机器数量<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>5）配置mapred-site.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>6）配置yarn-site.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs:192.168.19.128:8099<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">description</span>&gt;</span>这个地址是mr管理界面的<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>3、启动及测试<br>①格式化namenode,</p>
+<p>cd /usr/hadoop/hadoop-3.0.0    ./bin/hdfs namenode -format</p>
+<p>②启动</p>
+<p>cd /usr/hadoop/hadoop-3.0.0 ./sbin/start-all.sh</p>
+<p>③访问 <a href="http://192.168.19.128:9870" target="_blank" rel="noopener">http://192.168.19.128:9870</a></p>
+<p>4、设置环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line">HADOOP_HOME=/usr/hadoop/hadoop-3.0.0</span><br><span class="line">PATH=$HADOOP_HOME/sbin:$PATH</span><br><span class="line">export HADOOP_HOME PATH</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+    <div>
+      
+        
+      
+    </div>
+    
+ <div>
+     
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+     
+  </div>
+    
+
+    
+ 
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安装步骤/" rel="tag"> <i class="fa fa-tag"></i> 安装步骤</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/06/centos-java/index/" rel="next" title="Centos7安装java">
+                <i class="fa fa-chevron-left"></i> Centos7安装java
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 

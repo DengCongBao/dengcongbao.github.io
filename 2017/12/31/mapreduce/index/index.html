@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="the harder i work , the luckier i get">
 <meta property="og:description" content="mapreduce概述： 1、分布式计算模型，由Google提出，主要用于搜索领域，解决海量数据的计算问题  2、阶段：Map和reduce 3、特点：高容错性、高扩展、编程简单、适合大数据离线批量处理 流程分析： 词频统计： ​                 代码实现如下： 123456789101112131415161718192021222324252627282930313233343">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-11T02:12:30.136Z">
+<meta property="og:updated_time" content="2018-01-11T02:44:29.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mapreduce">
 <meta name="twitter:description" content="mapreduce概述： 1、分布式计算模型，由Google提出，主要用于搜索领域，解决海量数据的计算问题  2、阶段：Map和reduce 3、特点：高容错性、高扩展、编程简单、适合大数据离线批量处理 流程分析： 词频统计： ​                 代码实现如下： 123456789101112131415161718192021222324252627282930313233343">
@@ -431,6 +431,8 @@
 <p>hdfs dfs -put  1.txt  /usr/hadoop</p>
 <p>③启动程序</p>
 <p>hadoop jar test.jar cn.test.mr.CountMapReduce  /user/hadoop/1.txt  out</p>
+<p>④查看输出</p>
+<p>hdfs dfs -cat out/*</p>
 <p>具体命令参考 <a href="http://blog.csdn.net/wang_zhenwei/article/details/47444335" target="_blank" rel="noopener">http://blog.csdn.net/wang_zhenwei/article/details/47444335</a></p>
 
       

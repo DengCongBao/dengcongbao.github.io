@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>dengcongbao.github.io/2017/12/31/mapreduce/index/</loc>
+    
+    <lastmod>2018-01-11T02:44:29.891Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>dengcongbao.github.io/2018/01/06/centos-hadoop/centos-hadoop/</loc>
     
     <lastmod>2018-01-11T02:13:35.743Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>dengcongbao.github.io/2017/12/29/spring-tpe/index/</loc>
     
     <lastmod>2018-01-11T02:12:52.638Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>dengcongbao.github.io/2017/12/31/mapreduce/index/</loc>
-    
-    <lastmod>2018-01-11T02:12:30.136Z</lastmod>
     
   </url>
   

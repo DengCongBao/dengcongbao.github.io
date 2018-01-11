@@ -148,6 +148,8 @@
 <p>hdfs dfs -put  1.txt  /usr/hadoop</p>
 <p>③启动程序</p>
 <p>hadoop jar test.jar cn.test.mr.CountMapReduce  /user/hadoop/1.txt  out</p>
+<p>④查看输出</p>
+<p>hdfs dfs -cat out/*</p>
 <p>具体命令参考 <a href="http://blog.csdn.net/wang_zhenwei/article/details/47444335" target="_blank" rel="noopener">http://blog.csdn.net/wang_zhenwei/article/details/47444335</a></p>
 ]]></content>
       

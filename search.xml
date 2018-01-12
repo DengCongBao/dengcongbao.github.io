@@ -49,7 +49,6 @@
 <p>zkServer.sh start  启动命令  |    zkServer.sh status 查看状态</p>
 <p>⑤客户端连接</p>
 <p>zkCli.sh -server 192.168.19.128:2181 </p>
-<p>连接之后可以时候help来查看有哪些命令可以使用</p>
 ]]></content>
       
         <categories>

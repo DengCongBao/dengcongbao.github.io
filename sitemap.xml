@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>dengcongbao.github.io/2018/01/12/Zookeeper%E5%AE%89%E8%A3%85%E4%B9%8B%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2018-01-12T15:07:00.112Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>dengcongbao.github.io/2018/01/11/Spark%E4%BB%8E%E5%A4%96%E9%83%A8%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E4%B9%8BtextFile/</loc>
     
     <lastmod>2018-01-12T13:57:46.732Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>dengcongbao.github.io/2018/01/12/Spark2-0-0%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85/</loc>
     
     <lastmod>2018-01-12T13:56:43.488Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>dengcongbao.github.io/2018/01/12/Zookeeper%E5%AE%89%E8%A3%85%E4%B9%8B%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2018-01-12T13:56:21.877Z</lastmod>
     
   </url>
   

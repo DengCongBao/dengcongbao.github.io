@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA['Spark2.0.0单机模式安装']]></title>
+      <title><![CDATA[Spark2.0.0单机模式安装]]></title>
       <url>/2018/01/12/Spark2-0-0%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85/</url>
       <content type="html"><![CDATA[<p>①解压已下载的spark压缩包</p>
 <p>tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz -C /usr/local/spark/spark-2.0.0-bin-hadoop2.7</p>
@@ -31,7 +31,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA['Zookeeper安装之单机模式']]></title>
+      <title><![CDATA[Zookeeper安装之单机模式]]></title>
       <url>/2018/01/12/Zookeeper%E5%AE%89%E8%A3%85%E4%B9%8B%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>①下载zookeeper</p>
 <p>wget <a href="http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.3.6/zookeeper-3.3.6.tar.gz" target="_blank" rel="noopener">http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.3.6/zookeeper-3.3.6.tar.gz</a></p>
@@ -170,14 +170,14 @@
       
         <categories>
             
-            <category> spark </category>
+            <category> Spark </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> spark </tag>
+            <tag> Spark </tag>
             
         </tags>
         

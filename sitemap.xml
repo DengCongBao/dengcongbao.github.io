@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>dengcongbao.github.io/2018/01/06/centos-hadoop/centos-hadoop/</loc>
+    
+    <lastmod>2018-01-12T02:02:43.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>dengcongbao.github.io/2018/01/06/centos-java/index/</loc>
+    
+    <lastmod>2018-01-12T02:02:10.271Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>dengcongbao.github.io/2018/01/11/Spark%E4%B9%8BWorkCount/</loc>
     
-    <lastmod>2018-01-11T13:59:17.268Z</lastmod>
+    <lastmod>2018-01-12T01:58:33.031Z</lastmod>
     
   </url>
   
@@ -26,20 +40,6 @@
     <loc>dengcongbao.github.io/2018/01/11/Hadoop2-7%E5%8D%95%E6%9C%BA%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</loc>
     
     <lastmod>2018-01-11T07:14:23.422Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>dengcongbao.github.io/2018/01/06/centos-hadoop/centos-hadoop/</loc>
-    
-    <lastmod>2018-01-11T07:14:00.679Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>dengcongbao.github.io/2018/01/06/centos-java/index/</loc>
-    
-    <lastmod>2018-01-11T02:13:15.579Z</lastmod>
     
   </url>
   

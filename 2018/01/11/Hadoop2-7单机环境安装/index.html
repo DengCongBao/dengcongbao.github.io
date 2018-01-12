@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="下载一份Hadoop.tar.gz解压到你想要的目录， 我这里放到/usr/local/hadoop下。将其改名为： shadoop修改如下配置文件： 1234567891011121314151617181920212223conf/core-site.xml:&amp;lt;configuration&amp;gt;	&amp;lt;property&amp;gt;		&amp;lt;name&amp;gt;fs.default.name&amp;">
+<meta name="description" content="下载一份Hadoop.tar.gz解压到你想要的目录， 我这里放到/usr/local/hadoop下。修改如下配置文件： cd  /usr/local/hadoop/hadoop-2.7.2/etc/hadoop/ 12345678910111213141516171819core-site.xml:&amp;lt;configuration&amp;gt;  &amp;lt;property&amp;gt;">
 <meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hadoop2.7单机环境安装">
+<meta property="og:title" content="Hadoop2.7.1单机环境安装">
 <meta property="og:url" content="dengcongbao.github.io/2018/01/11/Hadoop2-7单机环境安装/index.html">
 <meta property="og:site_name" content="the harder i work , the luckier i get">
-<meta property="og:description" content="下载一份Hadoop.tar.gz解压到你想要的目录， 我这里放到/usr/local/hadoop下。将其改名为： shadoop修改如下配置文件： 1234567891011121314151617181920212223conf/core-site.xml:&amp;lt;configuration&amp;gt;	&amp;lt;property&amp;gt;		&amp;lt;name&amp;gt;fs.default.name&amp;">
+<meta property="og:description" content="下载一份Hadoop.tar.gz解压到你想要的目录， 我这里放到/usr/local/hadoop下。修改如下配置文件： cd  /usr/local/hadoop/hadoop-2.7.2/etc/hadoop/ 12345678910111213141516171819core-site.xml:&amp;lt;configuration&amp;gt;  &amp;lt;property&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-11T07:14:23.422Z">
+<meta property="og:updated_time" content="2018-01-12T12:20:28.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hadoop2.7单机环境安装">
-<meta name="twitter:description" content="下载一份Hadoop.tar.gz解压到你想要的目录， 我这里放到/usr/local/hadoop下。将其改名为： shadoop修改如下配置文件： 1234567891011121314151617181920212223conf/core-site.xml:&amp;lt;configuration&amp;gt;	&amp;lt;property&amp;gt;		&amp;lt;name&amp;gt;fs.default.name&amp;">
+<meta name="twitter:title" content="Hadoop2.7.1单机环境安装">
+<meta name="twitter:description" content="下载一份Hadoop.tar.gz解压到你想要的目录， 我这里放到/usr/local/hadoop下。修改如下配置文件： cd  /usr/local/hadoop/hadoop-2.7.2/etc/hadoop/ 12345678910111213141516171819core-site.xml:&amp;lt;configuration&amp;gt;  &amp;lt;property&amp;gt;">
 
 
 
@@ -148,7 +148,7 @@
 
 
 
-  <title>Hadoop2.7单机环境安装 | the harder i work , the luckier i get</title>
+  <title>Hadoop2.7.1单机环境安装 | the harder i work , the luckier i get</title>
   
 
 
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hadoop2.7单机环境安装</h1>
+          <h1 class="post-title" itemprop="name headline">Hadoop2.7.1单机环境安装</h1>
         
 
         <div class="post-meta">
@@ -417,9 +417,14 @@
       
 
       
-        <p>下载一份Hadoop.tar.gz<br>解压到你想要的目录， 我这里放到/usr/local/hadoop下。<br>将其改名为： shadoop<br>修改如下配置文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">conf/core-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.110.54:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">conf/hdfs-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">conf/mapred-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>192.168.110.54:9001<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>ssh密钥：<br>$ ssh-keygen -t dsa -P ‘’ -f ~/.ssh/id_dsa<br>$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys<br>配置conf下hadoop-env.sh:<br>export JAVA_HOME=/usr/java/jdk1.6.0_21 #配置java_home<br>格式化namenode：<br>bin/hadoop namenode -format<br>开启服务：<br>bin/start-all.sh </p>
+        <p>下载一份Hadoop.tar.gz<br>解压到你想要的目录， 我这里放到/usr/local/hadoop下。<br>修改如下配置文件：</p>
+<p>cd  /usr/local/hadoop/hadoop-2.7.2/etc/hadoop/</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">core-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.19.128:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">hdfs-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.support.append<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ssh密钥：<br>$ ssh-keygen -t dsa -P ‘’ -f ~/.ssh/id_dsa<br>$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys<br>配置conf下hadoop-env.sh:<br>export JAVA_HOME=/usr/java/jdk1.8.0_131 #配置java_home<br>格式化namenode：<br>bin/hadoop namenode -format</p>
+<p>增加环境变量：vi /etc/profile</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.8.0_131</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib.tools.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br><span class="line">HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.2</span><br><span class="line">PATH=$HADOOP_HOME/bin:$PATH</span><br><span class="line">export HADOOP_HOME PATH</span><br></pre></td></tr></table></figure>
+<p>生效环境变量：source /etc/profile</p>
+<p>开启服务：<br>bin/start-all.sh </p>
 
       
     </div>
@@ -542,7 +547,7 @@
               
                 <a href="/archive/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -564,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

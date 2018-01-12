@@ -3,6 +3,71 @@
   
     
     <entry>
+      <title><![CDATA['Spark2.0.0单机模式安装']]></title>
+      <url>/2018/01/12/Spark2-0-0%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>①解压已下载的spark压缩包</p>
+<p>tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz -C /usr/local/spark/spark-2.0.0-bin-hadoop2.7</p>
+<p>②配置文件修改</p>
+<p>/conf spark-env.sh末尾加上 export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/hadoop-2.7.2/bin/hadoop classpath)</p>
+<p>②配置环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_HOME=/usr/local/spark/spark-2.0.0-bin-hadoop2.7</span><br><span class="line">PATH=$SPARK_HOME/bin:$PATH </span><br><span class="line">export SPARK_HOME PATH</span><br></pre></td></tr></table></figure>
+<p>③启动spark   ./sbin/start-master.sh</p>
+<p>命令：关闭spark : ./sbin/stop-master.sh</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Spark </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Spark </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA['Zookeeper安装之单机模式']]></title>
+      <url>/2018/01/12/Zookeeper%E5%AE%89%E8%A3%85%E4%B9%8B%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p>①下载zookeeper</p>
+<p>wget <a href="http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.3.6/zookeeper-3.3.6.tar.gz" target="_blank" rel="noopener">http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.3.6/zookeeper-3.3.6.tar.gz</a></p>
+<p>②解压 zookeeper到指定目录</p>
+<p>mkdir /usr/local/zookeeper</p>
+<p>tar -zxvf zookeeper-3.3.6.tar.gz -C /usr/local/zookeeper/</p>
+<p>③复制 zoo_sample.cfg 为zoo.cfg</p>
+<p>cd /usr/local/zookeeper/zookeeper-3.3.6/conf/</p>
+<p>cp zoo_sample.cfg zoo.cfg</p>
+<p>④设置zookeeper环境变量</p>
+<p>vi /etc/profile</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZOOKEEPER_HOME=/usr/<span class="built_in">local</span>/zookeeper/zookeeper-3.3.6</span><br><span class="line">PATH=<span class="variable">$ZOOKEEPER_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> ZOOKEEPER_HOME PATH</span><br></pre></td></tr></table></figure>
+<p>source /etc/profile</p>
+<p>④启动zookeeper</p>
+<p>zkServer.sh start  启动命令  |    zkServer.sh status 查看状态</p>
+<p>⑤客户端连接</p>
+<p>zkCli.sh -server 192.168.19.128:2181 </p>
+<p>连接之后可以时候help来查看有哪些命令可以使用</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hadoop </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> zookeeper </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spark之WorkCount]]></title>
       <url>/2018/01/11/Spark%E4%B9%8BWorkCount/</url>
       <content type="html"><![CDATA[<p>①使用IntelliJ IDEA新建Scala-maven项目</p>
@@ -35,11 +100,16 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Hadoop2.7单机环境安装]]></title>
+      <title><![CDATA[Hadoop2.7.1单机环境安装]]></title>
       <url>/2018/01/11/Hadoop2-7%E5%8D%95%E6%9C%BA%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</url>
-      <content type="html"><![CDATA[<p>下载一份Hadoop.tar.gz<br>解压到你想要的目录， 我这里放到/usr/local/hadoop下。<br>将其改名为： shadoop<br>修改如下配置文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">conf/core-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.110.54:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">conf/hdfs-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">conf/mapred-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>192.168.110.54:9001<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>ssh密钥：<br>$ ssh-keygen -t dsa -P ‘’ -f ~/.ssh/id_dsa<br>$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys<br>配置conf下hadoop-env.sh:<br>export JAVA_HOME=/usr/java/jdk1.6.0_21 #配置java_home<br>格式化namenode：<br>bin/hadoop namenode -format<br>开启服务：<br>bin/start-all.sh </p>
+      <content type="html"><![CDATA[<p>下载一份Hadoop.tar.gz<br>解压到你想要的目录， 我这里放到/usr/local/hadoop下。<br>修改如下配置文件：</p>
+<p>cd  /usr/local/hadoop/hadoop-2.7.2/etc/hadoop/</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">core-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.19.128:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">hdfs-site.xml:</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.support.append<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ssh密钥：<br>$ ssh-keygen -t dsa -P ‘’ -f ~/.ssh/id_dsa<br>$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys<br>配置conf下hadoop-env.sh:<br>export JAVA_HOME=/usr/java/jdk1.8.0_131 #配置java_home<br>格式化namenode：<br>bin/hadoop namenode -format</p>
+<p>增加环境变量：vi /etc/profile</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.8.0_131</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib.tools.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br><span class="line">HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.2</span><br><span class="line">PATH=$HADOOP_HOME/bin:$PATH</span><br><span class="line">export HADOOP_HOME PATH</span><br></pre></td></tr></table></figure>
+<p>生效环境变量：source /etc/profile</p>
+<p>开启服务：<br>bin/start-all.sh </p>
 ]]></content>
       
         <categories>
@@ -166,7 +236,7 @@
 <p>​     vi /etc/profile</p>
 <p>​      ①在末尾添加在末尾行添加</p>
 <p>​      ②在末尾行添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>set java environment</span><br><span class="line">JAVA_HOME=/usr/java/jdk1.8.0_131</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib.tools.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">set</span> java environment</span></span><br><span class="line">JAVA_HOME=/usr/java/jdk1.8.0_131</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib.tools.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
 <p>​      ③source /etc/profile</p>
 <p>​      ④java -version 查看JDK版本信息，如果显示以下信息证明安装成功</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version "1.8.0_131"</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_131-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)</span><br></pre></td></tr></table></figure>

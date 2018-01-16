@@ -23,6 +23,36 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Hbase之单机模式安装]]></title>
+      <url>/2018/01/16/Hbase%E4%B9%8B%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>①下载hbase安装包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.bit.edu.cn/apache/hbase/1.2.6/hbase-1.2.6-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<p>②解压安装包到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/hbase</span><br><span class="line">tar -zxvf hbase-1.2.6-bin.tar.gz -C /usr/local/hbase</span><br></pre></td></tr></table></figure>
+<p>③修改配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hbase/hbase-1.2.6/conf</span><br><span class="line"></span><br><span class="line">vi hbase-site.xml</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.19.128:9000/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">vi hbase-env.sh</span><br><span class="line"># hbase-env.sh添加JAVA_HOME配置</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">HBASE_HOME=/usr/local/hbase/hbase-1.2.6</span><br><span class="line">PATH=$HBASE_HOME/bin:$PATH</span><br><span class="line">export HBASE_HOME PATH</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<p>④启动Hbase</p>
+<p>启动hadoop :start-all.sh</p>
+<p>启动zookeeper：zkServer.sh start</p>
+<p>启动Hbase: start-hbase.sh</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hadoop </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hbase </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java的native方法]]></title>
       <url>/2018/01/13/Java%E7%9A%84native%E6%96%B9%E6%B3%95/</url>
       <content type="html"></content>

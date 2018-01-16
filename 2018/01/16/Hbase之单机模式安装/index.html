@@ -90,7 +90,7 @@
 
 
 
-  <meta name="keywords" content="lombok," />
+  <meta name="keywords" content="Hbase," />
 
 
 
@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;	&amp;lt;">
-<meta name="keywords" content="lombok">
+<meta name="description" content="①下载hbase安装包 1wget http://mirror.bit.edu.cn/apache/hbase/1.2.6/hbase-1.2.6-bin.tar.gz ②解压安装包到指定目录 12mkdir /usr/local/hbasetar -zxvf hbase-1.2.6-bin.tar.gz -C /usr/local/hbase ③修改配置文件 123456789101112131">
+<meta name="keywords" content="Hbase">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lombok">
-<meta property="og:url" content="dengcongbao.github.io/2017/12/31/lombok/index/index.html">
+<meta property="og:title" content="Hbase之单机模式安装">
+<meta property="og:url" content="dengcongbao.github.io/2018/01/16/Hbase之单机模式安装/index.html">
 <meta property="og:site_name" content="the harder i work , the luckier i get">
-<meta property="og:description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;	&amp;lt;">
+<meta property="og:description" content="①下载hbase安装包 1wget http://mirror.bit.edu.cn/apache/hbase/1.2.6/hbase-1.2.6-bin.tar.gz ②解压安装包到指定目录 12mkdir /usr/local/hbasetar -zxvf hbase-1.2.6-bin.tar.gz -C /usr/local/hbase ③修改配置文件 123456789101112131">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-11T02:12:16.559Z">
+<meta property="og:updated_time" content="2018-01-16T03:46:05.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lombok">
-<meta name="twitter:description" content="lombok 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码 springboot集成lombok pom文件添加以下依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;	&amp;lt;">
+<meta name="twitter:title" content="Hbase之单机模式安装">
+<meta name="twitter:description" content="①下载hbase安装包 1wget http://mirror.bit.edu.cn/apache/hbase/1.2.6/hbase-1.2.6-bin.tar.gz ②解压安装包到指定目录 12mkdir /usr/local/hbasetar -zxvf hbase-1.2.6-bin.tar.gz -C /usr/local/hbase ③修改配置文件 123456789101112131">
 
 
 
@@ -142,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="dengcongbao.github.io/2017/12/31/lombok/index/"/>
+  <link rel="canonical" href="dengcongbao.github.io/2018/01/16/Hbase之单机模式安装/"/>
 
 
 
 
 
-  <title>lombok | the harder i work , the luckier i get</title>
+  <title>Hbase之单机模式安装 | the harder i work , the luckier i get</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="dengcongbao.github.io/2017/12/31/lombok/index/">
+    <link itemprop="mainEntityOfPage" href="dengcongbao.github.io/2018/01/16/Hbase之单机模式安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guiguzi">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">lombok</h1>
+          <h1 class="post-title" itemprop="name headline">Hbase之单机模式安装</h1>
         
 
         <div class="post-meta">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T14:15:33+08:00">
-                2017-12-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T10:01:17+08:00">
+                2018-01-16
               </time>
             
 
@@ -380,8 +380,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Hadoop/" itemprop="url" rel="index">
+                    <span itemprop="name">Hadoop</span>
                   </a>
                 </span>
 
@@ -417,13 +417,16 @@
       
 
       
-        <p><strong>lombok</strong> 提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 java 代码</p>
-<p>springboot集成lombok</p>
-<p>pom文件添加以下依赖</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">	&lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>lombok 注解：<br>​    lombok 提供的注解不多，可以参考官方视频的讲解和官方文档。<br>​    Lombok 注解在线帮助文档：<a href="http://projectlombok.org/features/index.html" target="_blank" rel="noopener">http://projectlombok.org/features/index.</a>    下面介绍几个我常用的 lombok 注解：<br>​        @Data   ：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提     供了equals、canEqual、hashCode、toString 方法<br>​        @Setter：注解在属性上；为属性提供 setting 方法<br>​        @Getter：注解在属性上；为属性提供 getting 方法<br>​        @Log4j ：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象<br>​        @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法<br>​        @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法</p>
-<p>示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Log</span>4j</span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> String identity;  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+        <p>①下载hbase安装包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.bit.edu.cn/apache/hbase/1.2.6/hbase-1.2.6-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<p>②解压安装包到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/hbase</span><br><span class="line">tar -zxvf hbase-1.2.6-bin.tar.gz -C /usr/local/hbase</span><br></pre></td></tr></table></figure>
+<p>③修改配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hbase/hbase-1.2.6/conf</span><br><span class="line"></span><br><span class="line">vi hbase-site.xml</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://192.168.19.128:9000/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">vi hbase-env.sh</span><br><span class="line"># hbase-env.sh添加JAVA_HOME配置</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">HBASE_HOME=/usr/local/hbase/hbase-1.2.6</span><br><span class="line">PATH=$HBASE_HOME/bin:$PATH</span><br><span class="line">export HBASE_HOME PATH</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<p>④启动Hbase</p>
+<p>启动hadoop :start-all.sh</p>
+<p>启动zookeeper：zkServer.sh start</p>
+<p>启动Hbase: start-hbase.sh</p>
 
       
     </div>
@@ -453,7 +456,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/lombok/" rel="tag"> <i class="fa fa-tag"></i> lombok</a>
+            <a href="/tags/Hbase/" rel="tag"> <i class="fa fa-tag"></i> Hbase</a>
           
         </div>
       
@@ -466,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/29/spring-tpe/index/" rel="next" title="ThreadPoolTaskExecutor">
-                <i class="fa fa-chevron-left"></i> ThreadPoolTaskExecutor
+              <a href="/2018/01/13/Java的native方法/" rel="next" title="Java的native方法">
+                <i class="fa fa-chevron-left"></i> Java的native方法
               </a>
             
           </div>
@@ -476,8 +479,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/31/mapreduce/index/" rel="prev" title="mapreduce">
-                mapreduce <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/16/Mahout安装之单机模式/" rel="prev" title="Mahout安装之单机模式">
+                Mahout安装之单机模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

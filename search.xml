@@ -3,6 +3,46 @@
   
     
     <entry>
+      <title><![CDATA[Mahout安装之单机模式]]></title>
+      <url>/2018/01/16/Mahout%E5%AE%89%E8%A3%85%E4%B9%8B%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> Hadoop </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hbase </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java的native方法]]></title>
+      <url>/2018/01/13/Java%E7%9A%84native%E6%96%B9%E6%B3%95/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java虚拟机 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spark2.0.0单机模式安装]]></title>
       <url>/2018/01/12/Spark2-0-0%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85/</url>
       <content type="html"><![CDATA[<p>①解压已下载的spark压缩包</p>

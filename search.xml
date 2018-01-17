@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title><![CDATA[MapReduce运行原理详解]]></title>
+      <url>/2018/01/17/MapReduce%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p>我们通过提交jar包，进行MapReduce处理，那么整个运行过程分为五个环节：</p>
+<p>　　1、向client端提交MapReduce job.</p>
+<p>　　2、随后yarn的ResourceManager进行资源的分配.</p>
+<p>　　3、由NodeManager进行加载与监控containers.</p>
+<p>　　4、通过applicationMaster与ResourceManager进行资源的申请及状态的交互，由NodeManagers进行MapReduce运行时job的管理.</p>
+<p>　　5、通过hdfs进行job配置文件、jar包的各节点分发。</p>
+<p>​       <img src="/img/mapreduce104.jpg" alt="mapreduce"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hadoop </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> MapReduce </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hive安装之单机模式]]></title>
       <url>/2018/01/16/Hive%E5%AE%89%E8%A3%85%E4%B9%8B%E5%8D%95%E6%9C%BA%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>①下载Hive安装包</p>

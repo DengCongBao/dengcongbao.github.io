@@ -12,6 +12,48 @@
 <p>　　4、通过applicationMaster与ResourceManager进行资源的申请及状态的交互，由NodeManagers进行MapReduce运行时job的管理.</p>
 <p>　　5、通过hdfs进行job配置文件、jar包的各节点分发。</p>
 <p>​       <img src="/img/mapreduce104.jpg" alt="mapreduce"></p>
+<p><strong>Job 提交过程</strong></p>
+<p>　　job的提交通过<strong>调用submit()方法</strong>创建一个<strong>JobSubmitter</strong>实例，并<strong>调用submitJobInternal()</strong>方法。整个job的运行过程如下：</p>
+<p>　　1、向ResourceManager申请application ID，此ID为该MapReduce的jobId。</p>
+<p>　　2、检查output的路径是否正确，是否已经被创建。</p>
+<p>　　3、计算input的splits。</p>
+<p>　　4、拷贝运行job 需要的jar包、配置文件以及计算input的split 到各个节点。</p>
+<p>　　5、在ResourceManager中调用submitAppliction()方法,执行job</p>
+<p><strong>Job 初始化过程</strong></p>
+<p>　　1、当resourceManager收到了submitApplication()方法的调用通知后，scheduler开始分配container,随之ResouceManager发送applicationMaster进程，告知每个nodeManager管理器。</p>
+<p>　　2、<strong>由applicationMaster决定</strong>如何运行tasks,如果job数据量比较小，applicationMaster便选择<strong>将tasks运行在一个JVM中</strong>。那么如何判别这个job是大是小呢？当一个job的<strong>mappers数量小于10个</strong>，<strong>只有一个reducer或者读取的文件大小要小于一个HDFS block时</strong>，（可通过修改配置项mapreduce.job.ubertask.maxmaps,mapreduce.job.ubertask.maxreduces以及mapreduce.job.ubertask.maxbytes 进行调整)</p>
+<p>　　3、在运行tasks之前，applicationMaster将会<strong>调用setupJob()方法</strong>，随之创建output的输出路径(这就能够解释，不管你的mapreduce一开始是否报错，输出路径都会创建)</p>
+<p><strong>Task 任务分配</strong></p>
+<p>　　1、接下来applicationMaster向ResourceManager请求containers用于执行map与reduce的tasks（step 8),这里map task的优先级要高于reduce task，当所有的map tasks结束后，随之进行sort(这里是shuffle过程后面再说）,最后进行reduce task的开始。(这里有一点，当map tasks执行了百分之5%的时候，将会请求reduce，具体下面再总结)</p>
+<p>　　2、运行tasks的是需要消耗内存与CPU资源的，<strong>默认情况下，map和reduce的task资源分配为1024MB与一个核</strong>，（可修改运行的最小与最大参数配置,mapreduce.map.memory.mb,mapreduce.reduce.memory.mb,mapreduce.map.cpu.</p>
+<p>vcores,mapreduce.reduce.reduce.cpu.vcores.)</p>
+<p><strong>Task 任务执行</strong></p>
+<p>　　1、这时一个task已经被ResourceManager分配到一个container中，由applicationMaster告知nodemanager启动container，这个task将会被一个<strong>主函数为YarnChild</strong>的java application运行，但在运行task之前，<strong>首先定位task需要的jar包、配置文件以及加载在缓存中的文件</strong>。</p>
+<p>　　2、YarnChild运行于一个专属的JVM中，所以<strong>任何一个map或reduce任务出现问题，都不会影响整个nodemanager的crash或者hang</strong>。</p>
+<p>　　3、每个task都可以在相同的JVM task中完成，随之将完成的处理数据写入临时文件中。</p>
+<p>Mapreduce数据流</p>
+<p><strong>运行进度与状态更新</strong></p>
+<p>　　1、MapReduce是一个较长运行时间的批处理过程，可以是一小时、几小时甚至几天，那么Job的运行状态监控就非常重要。每个job以及<strong>每个task都有一个包含job（running,successfully completed,failed）的状态</strong>，以及value的计数器，状态信息及描述信息（描述信息一般都是在代码中加的打印信息），那么，这些信息是如何与客户端进行通信的呢？</p>
+<p>　　2、当一个task开始执行，它将会保持运行记录，记录task完成的比例，对于map的任务，将会记录其运行的百分比，对于reduce来说可能复杂点，但系统依旧会估计reduce的完成比例。当一个map或reduce任务执行时，<strong>子进程会持续每三秒钟与applicationMaster进行交互</strong>。</p>
+<p><strong>Job 完成</strong></p>
+<p> 　　最终，applicationMaster会收到一个job完成的通知，随后改变job的状态为successful。最终，applicationMaster与task containers被清空。</p>
+<p><strong>Shuffle与Sort</strong></p>
+<p>　　从map到reduce的过程，被称之为shuffle过程，MapReduce使到reduce的数据一定是经过key的排序的，那么shuffle是如何运作的呢？</p>
+<p>　　当map任务将数据output时，<strong>不仅仅是将结果输出到磁盘，它是将其写入内存缓冲区域，并进行一些预分类</strong>。</p>
+<p><img src="/img/suffle-sort.jpg" alt="shuffle"></p>
+<p><strong>　1、The Map Side</strong></p>
+<p>　　首先map任务的<strong>output过程是一个环状的内存缓冲区，缓冲区的大小默认为100MB</strong>（可通过修改配置项mpareduce.task.io.sort.mb进行修改），当写入内存的大小到达一定比例<strong>，默认为80%</strong>（可通过mapreduce.map.sort.spill.percent配置项修改）,便开始写入磁盘。</p>
+<p>　　在写入磁盘之前，线程将会指定数据写入与reduce相应的patitions中，最终传送给reduce.在每个partition中<strong>，后台线程将会在内存中进行Key的排序</strong>，（<strong>如果代码中有combiner方法，则会在output时就进行sort排序</strong>，这里，如果只有少于3个写入磁盘的文件，combiner将会在outputfile前启动，如果只有一个或两个，那么将不会调用）</p>
+<p>　 这里<strong>将map输出的结果进行压缩会大大减少磁盘IO与网络传输的开销</strong>（配置参数mapreduce.map .output.compress 设置为true,如果使用第三方压缩jar，可通过mapreduce.map.output.compress.codec进行设置)</p>
+<p>　  随后这些paritions输出文件将会通过HTTP发送至reducers，传送的最大启动线程通过mapreduce.shuffle.max.threads进行配置。</p>
+<p><strong>　　2、The Reduce Side</strong></p>
+<p>　　首先上面每个节点的map都将结果写入了本地磁盘中，现在reduce需要将map的结果通过集群拉取过来，这里要注意的是，<strong>需要等到所有map任务结束后,reduce才会对map的结果进行拷贝</strong>，由于reduce函数有少数几个复制线程，以至于它<strong>可以同时拉取多个map的输出结果。默认的为5个线程</strong>（可通过修改配置mapreduce.reduce.shuffle.parallelcopies来修改其个数）</p>
+<p>　　这里有个问题，那么reducers怎么知道从哪些机器拉取数据呢？ </p>
+<p>　　当所有map的任务结束后，<strong>applicationMaster通过心跳机制（heartbeat mechanism)，由它知道mapping的输出结果与机器host</strong>,所以<strong>reducer会定时的通过一个线程访问applicationmaster请求map的输出结果</strong>。</p>
+<p>　　Map的结果将会被拷贝到reduce task的JVM的内存中（内存大小可在mapreduce.reduce.shuffle.input.buffer.percent中设置）如果不够用，则会写入磁盘。当内存缓冲区的大小到达一定比例时（可通过mapreduce.reduce.shuffle.merge.percent设置)或map的输出结果文件过多时（可通过配置mapreduce.reduce.merge.inmen.threshold)，将会除法合并(merged)随之写入磁盘。</p>
+<p>　　这时要注意，<strong>所有的map结果这时都是被压缩过的，需要先在内存中进行解压缩，以便后续合并它们</strong>。（合并最终文件的数量可通过mapreduce.task.io.sort.factor进行配置） 最终reduce进行运算进行输出。</p>
+<p>参考文献:《Hadoop:The Definitive Guide, 4th Edition》 </p>
+<p>本博文摘抄地址：<a href="https://www.cnblogs.com/yangsy0915/p/5559969.html" target="_blank" rel="noopener">https://www.cnblogs.com/yangsy0915/p/5559969.html</a></p>
 ]]></content>
       
         <categories>

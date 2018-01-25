@@ -3,6 +3,58 @@
   
     
     <entry>
+      <title><![CDATA[linux下root运行Elasticsearch异常]]></title>
+      <url>/2018/01/25/linux%E4%B8%8Broot%E8%BF%90%E8%A1%8CElasticsearch%E5%BC%82%E5%B8%B8/</url>
+      <content type="html"><![CDATA[<p>环境：Centos7  elasticsearch-2.4.5</p>
+<p>异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.RuntimeException: don<span class="string">'t run elasticsearch as root.</span></span><br><span class="line"><span class="string">        at org.elasticsearch.bootstrap.Bootstrap.initializeNatives(Bootstrap.java:94)</span></span><br><span class="line"><span class="string">        at org.elasticsearch.bootstrap.Bootstrap.setup(Bootstrap.java:160)</span></span><br><span class="line"><span class="string">        at org.elasticsearch.bootstrap.Bootstrap.init(Bootstrap.java:286)</span></span><br><span class="line"><span class="string">        at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:45)</span></span><br><span class="line"><span class="string">Refer to the log for complete error details.</span></span><br></pre></td></tr></table></figure>
+<p>解决方案：</p>
+<p>​              vi elasticsearch</p>
+<p>​              加上 ES_JAVA_OPTS=”-Des.insecure.allow.root=true”</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Elasticsearch </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Elasticsearch </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[破解idea2017.3亲测有效]]></title>
+      <url>/2018/01/24/%E7%A0%B4%E8%A7%A3idea2017-3%E4%BA%B2%E6%B5%8B%E6%9C%89%E6%95%88/</url>
+      <content type="html"><![CDATA[<p>下载这个： <a href="http://idea.lanyus.com/jar/JetbrainsCrack-2.6.10-release-enc.jar" target="_blank" rel="noopener">http://idea.lanyus.com/jar/JetbrainsCrack-2.6.10-release-enc.jar</a>  </p>
+<p> 放在idea的bin目录下</p>
+<p>在idea.exe.vamoptions和idea64.exe.vamoptions中最后一行各自插入这一句</p>
+<p>-javaagent:F:\Program Files\JetBrains\IntelliJ IDEA 2017.3\bin\JetbrainsCrack-2.6.10-release-enc.jar（根据你的安装目录不同需要改变，就是这个jar包的路径）</p>
+<p><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a> 获取注册码 填入active code</p>
+<p>接着就重启idea打开查看发现破解到2099年了</p>
+]]></content>
+      
+        <categories>
+            
+            <category> IntelliJ IDEA </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> IntelliJ IDEA </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[HDFS的运行原理]]></title>
       <url>/2018/01/18/HDFS%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
       <content type="html"><![CDATA[<p><strong>简介</strong></p>

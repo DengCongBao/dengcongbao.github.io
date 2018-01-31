@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[VirtualBoxNAT模式远程登录Ubuntu虚拟机]]></title>
+      <url>/2018/01/31/VirtualBoxNAT%E6%A8%A1%E5%BC%8F%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95Ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+      <content type="html"><![CDATA[<p>配置如下图</p>
+<p><img src="/img/clipboard.png" alt="image"></p>
+<p>ssh客户端配置 ip:127.0.0.1 port:2222 即可访问</p>
+]]></content>
+      
+        <categories>
+            
+            <category> linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[linux下root运行Elasticsearch异常]]></title>
       <url>/2018/01/25/linux%E4%B8%8Broot%E8%BF%90%E8%A1%8CElasticsearch%E5%BC%82%E5%B8%B8/</url>
       <content type="html"><![CDATA[<p>环境：Centos7  elasticsearch-2.4.5</p>

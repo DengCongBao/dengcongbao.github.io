@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title><![CDATA[Centos7安装Docker]]></title>
+      <url>/2018/02/02/Centos7%E5%AE%89%E8%A3%85Docker/</url>
+      <content type="html"><![CDATA[<ol>
+<li><p>安装docker-io yum install docker-io</p>
+</li>
+<li><p>检查安装情况  docker -h</p>
+</li>
+<li><p>启动 service docker start或者systemctl start docker</p>
+<p>​    </p>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Docker </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[VirtualBoxNAT模式远程登录Ubuntu虚拟机]]></title>
       <url>/2018/01/31/VirtualBoxNAT%E6%A8%A1%E5%BC%8F%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95Ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
       <content type="html"><![CDATA[<p>配置如下图</p>

@@ -3,6 +3,40 @@
   
     
     <entry>
+      <title><![CDATA[Docker-Notes]]></title>
+      <url>/2018/02/02/Docker-Notes/</url>
+      <content type="html"><![CDATA[<h1 id="Docker三大核心"><a href="#Docker三大核心" class="headerlink" title="Docker三大核心"></a>Docker三大核心</h1><h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull</span><br></pre></td></tr></table></figure>
+<h3 id="镜像加速："><a href="#镜像加速：" class="headerlink" title="镜像加速："></a>镜像加速：</h3><ol>
+<li>登录阿里云 进入控制台。</li>
+<li>点击“产品与服务”找到“容器服务”。</li>
+<li>点击“镜像”，点击右上角的“镜像仓库控制台”，进入后然后点击“镜像加速器” 。</li>
+<li>点击镜像加速器 按照文档配置即可。</li>
+</ol>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><h4 id="创建容器："><a href="#创建容器：" class="headerlink" title="创建容器："></a>创建容器：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 16379:6379 --name redis redis:3.0</span><br><span class="line">docker run --name db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql</span><br></pre></td></tr></table></figure>
+<h4 id="启动容器："><a href="#启动容器：" class="headerlink" title="启动容器："></a>启动容器：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start redis</span><br><span class="line">docker start db</span><br></pre></td></tr></table></figure>
+<h4 id="关闭容器："><a href="#关闭容器：" class="headerlink" title="关闭容器："></a>关闭容器：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop redis</span><br><span class="line">docker stop db</span><br></pre></td></tr></table></figure>
+<h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p>仓库是集中存放镜像的地方</p>
+<p>目前 Docker 官方维护了一个公共仓库 Docker Hub，其中已经包括了超过               15,000 的镜像。大部分需求，都可以通过在 Docker Hub 中直接下载镜像来实现</p>
+<p>用户无需登录即可通过 docker search 命令来查找官方仓库中的镜像，并利用 docker pull 命令来将它下载到本地。</p>
+<p>阿里云既提供了加速功能，也提供了仓库功能</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Docker </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Centos7安装Docker]]></title>
       <url>/2018/02/02/Centos7%E5%AE%89%E8%A3%85Docker/</url>
       <content type="html"><![CDATA[<ol>

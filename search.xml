@@ -777,7 +777,7 @@
 <p>②解压 zookeeper到指定目录</p>
 <p>mkdir /usr/local/zookeeper</p>
 <p>tar -zxvf zookeeper-3.3.6.tar.gz -C /usr/local/zookeeper/</p>
-<p>③复制 zoo_sample.cfg 为zoo.cfg</p>
+<p>③复制 zoo_sample.cfg 为zoo.cfg                   </p>
 <p>cd /usr/local/zookeeper/zookeeper-3.3.6/conf/</p>
 <p>cp zoo_sample.cfg zoo.cfg</p>
 <p>④设置zookeeper环境变量</p>
